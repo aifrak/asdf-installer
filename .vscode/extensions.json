@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    // EditorConfig
+    "editorconfig.editorconfig",
+
+    // Shell
+    "foxundermoon.shell-format",
+    "timonwong.shellcheck",
+
+    // Markdown
+    "davidanson.vscode-markdownlint",
+    "shd101wyy.markdown-preview-enhanced",
+    "yzhang.markdown-all-in-one",
+
+    // Formatters
+    "esbenp.prettier-vscode",
+
+    // Comments
+    "stackbreak.comment-divider"
+  ],
+
+  "unwantedRecommendations": []
+}

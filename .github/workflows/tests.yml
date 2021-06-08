@@ -1,0 +1,40 @@
+name: Tests
+
+on:
+  push:
+    paths-ignore:
+      - ".vscode/**"
+      - "LICENSE"
+  pull_request:
+
+jobs:
+  skip-duplicate-actions:
+    name: Skip duplicate actions
+    runs-on: ubuntu-20.04
+    outputs:
+      should-skip: ${{ steps.skip-check.outputs.should_skip }}
+
+    steps:
+      - id: skip-check
+        name: Check if workflow is not already running
+        uses: fkirc/skip-duplicate-actions@v3.4.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          concurrent_skipping: "same_content"
+          do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
+
+  tests:
+    name: Tests
+    needs: skip-duplicate-actions
+    if: ${{ needs.skip-duplicate-actions.outputs.should-skip != 'true' }}
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Lint Shellscript
+        run: docker run --rm -v $(pwd):/mnt koalaman/shellcheck:v0.7.2 ./src/asdf-installer.sh
+
+      - name: Lint Markdown
+        run: docker run --rm -v $(pwd):/markdown 06kellyjac/markdownlint-cli:0.27.1 .
