@@ -54,5 +54,5 @@
 
   // Spelling:
   "cSpell.words": ["asdf", "markdownlint", "shellcheck"],
-  "cSpell.ignoreWords": ["fkirc", "koalaman"]
+  "cSpell.ignoreWords": ["kellyjac", "fkirc", "koalaman"]
 }
