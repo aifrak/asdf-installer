@@ -33,8 +33,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Lint Markdown
-        run: docker run --rm -v $(pwd):/markdown 06kellyjac/markdownlint-cli:0.27.1 .
-
       - name: Lint Shellscript
         run: docker run --rm -v $(pwd):/mnt koalaman/shellcheck:v0.7.2 ./src/asdf-installer.sh
+
+      - name: Lint Markdown
+        run: docker run --rm -v $(pwd):/markdown 06kellyjac/markdownlint-cli:0.27.1 .
