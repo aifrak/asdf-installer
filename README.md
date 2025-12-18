@@ -2,6 +2,9 @@
 
 Install/Uninstall asdf plugins and versions from .tool-versions.
 
+> [!WARNING]
+> This repository has been archived. It is easier and better to use [mise](https://mise.jdx.dev/) instead.
+
 [![Tests](https://github.com/aifrak/asdf-installer/actions/workflows/tests.yml/badge.svg)](https://github.com/aifrak/asdf-installer/actions/workflows/tests.yml)
 [![GitHub](https://img.shields.io/github/license/aifrak/asdf-installer?color=blue)](https://github.com/aifrak/asdf-installer/blob/master/LICENSE)
 
